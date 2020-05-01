@@ -1,2 +1,2 @@
-# r_portfolio
+# portfolio
 My portfolio website using react
