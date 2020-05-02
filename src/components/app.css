@@ -1,0 +1,70 @@
+
+
+.hello-container{
+    background-image: linear-gradient(to left, #fcfcfc 50%, #0f0f0f 50%);
+    flex: 1;
+    margin: auto;
+    max-width: 100%;
+    height: 80vh;
+    text-align: center;
+}
+
+.hello-image{
+    margin: auto;
+    position: relative;
+}
+
+.line-animated-light{
+    fill: none;
+    stroke: #000000;
+}
+
+.line-animated-dark{
+    fill: none;
+    stroke: #ffffff;
+}
+
+.hello-scroll-text{
+    transform: rotate(-90deg);
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    /* Opera */
+    -o-transform: rotate(-90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.hello-scroll-icon{
+    transform: rotate(90deg);
+    /* Safari */
+    -webkit-transform: rotate(90deg);
+    /* Firefox */
+    -moz-transform: rotate(90deg);
+    /* IE */
+    -ms-transform: rotate(90deg);
+    /* Opera */
+    -o-transform: rotate(90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    
+}
+
+.hello-scroll{
+    animation: ScrollAnimation 1s linear infinite;
+    position: absolute;
+    left: 48%;
+    color: #ffffff;
+}
+
+@keyframes ScrollAnimation {
+    0%, 100% {
+        bottom: 10%;
+    }
+    50% {
+        bottom: 13%;
+    }
+}

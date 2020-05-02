@@ -1,21 +1,43 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState } from 'react'
+import { ThemeProvider, CssBaseline, makeStyles, Container, Typography } from '@material-ui/core'
+import { darkTheme, lightTheme } from '../theme'
+import SEO from '../components/seo'
+import Header from '../components/header'
+import Hello from '../components/hello'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const useStyles = makeStyles((theme) => ({
+    container1: {
+        padding: `1.5rem`,
+        maxWidth: `100%`,
+        maxHeight: `100%`
+    }
+}))
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export default function IndexPage(props){
+    const [darkMode, toggleDarkMode] = useState(true)
 
-export default IndexPage
+    const classes = useStyles()
+
+    return(
+        <ThemeProvider theme={darkMode? darkTheme: lightTheme}>
+            <CssBaseline/>
+            <Header toggleDarkMode={toggleDarkMode} darkMode={darkMode}/>
+            <SEO title="Home"/>
+            <br/>
+            <Container className={classes.container1}>
+                {/* <Typography
+                    component="h1"
+                    variant="h1"
+                    style={{
+                        fontFamily: [`Comfortaa`, `Open Sans`]
+                    }}
+                    noWrap
+                >
+                    Hello.<br/>
+                    I'm Krish
+                </Typography> */}
+                <Hello/>
+            </Container>
+        </ThemeProvider>
+    )
+}
