@@ -1,16 +1,18 @@
 import PropTypes from "prop-types"
 import React from "react"
-import { Toolbar, makeStyles, Typography, Divider, Switch, FormControlLabel } from '@material-ui/core';
+import { Toolbar, makeStyles, Typography, Switch, FormControlLabel, AppBar } from '@material-ui/core';
 import { useStaticQuery, graphql } from "gatsby";
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: {
-    padding: `1.2rem`,
+  toolbar:{
+    position: `fixed`,
+    left:`0px`,
+    right:`0px`
   },
   toolbarTitle:{
     flex: 1,
-    fontFamily: [`Kaushan Script`, `cursive`],
-  },
+    fontFamily: [`Kaushan Script`, `cursive`]
+  }
 }))
 
 export default function Header(props){
@@ -26,7 +28,7 @@ export default function Header(props){
   `)
   const { darkMode, toggleDarkMode } = props
   const handleChange = (e) => {
-    toggleDarkMode(!darkMode)
+    toggleDarkMode((prev) => !prev)
   }
   return(
     <React.Fragment>
@@ -43,9 +45,9 @@ export default function Header(props){
         <FormControlLabel
           control={<Switch checked={darkMode} onChange={handleChange} name="darkMode"/>}
           label="Dark Mode"
+          className={classes.themeSwitch}
         />
       </Toolbar>
-      <Divider variant="middle"></Divider>
     </React.Fragment>
   )
 }
